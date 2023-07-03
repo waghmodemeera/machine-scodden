@@ -1,0 +1,56 @@
+1.	How to copy only the table structure to another table?
+Create table employee2 as
+Select *from employee where 1=2;
+---------------------------------------
+Select *from employee2
+*************************************************************
+2.	How to copy one table into another table?
+Create table employee2 as
+Select *from employee;
+---------------------------------------
+Select *from employee2
+*************************************************************
+3.	How to insert previous table data into a new table?
+Insert into employee2
+(Select *from employee);
+*************************************************************
+4.	How to update even records?
+Update employee
+Set Emp_salary= 25000
+Where mod (Emp_id,2)= 0;
+---------------------------------------
+Select *from employee
+*************************************************************
+5.	How to update odd records?
+Update employee
+Set Emp_salary= 21000
+Where mod (Emp_id,2)= 0;
+---------------------------------------
+Select *from employee
+*************************************************************
+6.	How to display even records?
+Select * from employee
+Where mod (Emp_id,2)= 0;
+*************************************************************
+7.	How to display odd records?
+Select * from employee
+Where mod (Emp_id,2)= 1;
+*************************************************************
+8.	How to display sum of positive values from a particular column?
+Select Sum (case when Emp_id>0 then Emp_id else 0 end )as positive_value from employee;
+*************************************************************
+Update employee
+Set Emp_id= -104
+where Emp_id = 104;
+-------------------
+Update employee
+Set Emp_id= -120
+where Emp_id = 120;
+-------------------------
+9.	How to display sum of negative values from a particular column?
+Select Sum (case when Emp_id<0 then Emp_id else 0 end )as Negative from employee;
+*************************************************************
+10.	How to update employee salary by 10%?
+Update employee
+Set emp_salary= emp_salary*1.1;
+*************************************************************
