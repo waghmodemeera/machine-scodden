@@ -1,0 +1,43 @@
+4.	Conversion functions-
+
+--To_Date
+--To_Char
+--decode
+--NVL
+
+
+*******************************************************************
+--------TO_DATE--------------converts characters into date-----
+Select To_Date ('2020-JAN-05', 'yyyy-mm-dd')From Dual;
+select hire_date, to_date (Hire_date,  'yyyy-mm-dd') from employee
+
+
+--------TO_CHAR--------It will convert date/numeric value to the character/string value ----
+Select Hire_date,To_Char (Hire_date, 'dd-mon-year')From Employee
+Select Hire_date,To_Char (Hire_date, 'day-mon-year')From Employee;
+Select Hire_date,To_Char (Hire_date, 'dd-mon-year')From Employee
+-------------------------------------------------
+(yyyy-2020, yy-20, dd-23, mm-05,year- twenty twenty, day- Saturday)
+
+--------------------------------------------------------------------------------
+Important Interview Questions---
+---------Q. Display the data of students who joined in 1st Quarter?
+Select * From Employee2 Where To_Char(hire_date,'q')=1;
+
+---------Q. Display the data of students who joined in 1st Quarter of 2015?
+Select * From Employee Where To_Char(hire_date,'Q')=1 and To_Char(hire_date,'yyyy')=2023;
+
+--------------------------------------------------------------------------------
+
+--------DECODE--------It converts small abbreviation into full name----
+--with decode- we write understandable things to display it with clarity
+select Emp_name, decode(Emp_name, 'Ria' , 'Rosshelle')from Employee;
+
+--------NVL--------------It will convert null value into actual value in select statement--
+
+select NVL (Emp_city, ' ') from Employee
+
+--' '- In this place we can put up anything
+
+select NVL (Emp_city, 'Blank Record') from Employee
+*******************************************************************
